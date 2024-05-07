@@ -1,35 +1,27 @@
 import { StatusBar } from 'expo-status-bar';
 import { Platform, StyleSheet } from 'react-native';
-
+import { styles } from '../AppComponents/styles'
 import EditScreenInfo from '@/components/EditScreenInfo';
 import { Text, View } from '@/components/Themed';
 
 export default function ModalScreen() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Modal</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/modal.tsx" />
+    // <view>
+//     <View style={styles.titleContainer}>
+//     <Text style={styles.titleText}>Scan Your Receipt</Text>
+// </View>
 
-      {/* Use a light status bar on iOS to account for the black space above the modal */}
-      <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
-    </View>
+<View style={styles.textContainer}>
+<View style={styles.titleContainer}>
+                <Text style={[styles.text, { fontSize: 35, color: 'white' }]}>Receipt History</Text>
+                <Text style={[styles.text, { fontSize: 80 }]}></Text>
+            </View>
+            <Text style={styles.text}>-   Simple as a Snap: Hold your phone steady and capture a clear picture of your receipt.</Text>
+            <Text style={styles.text}>-   Focus on Details: Ensure the entire receipt is visible within the frame, including the merchant name, date, and amount.</Text>
+           <Text style={styles.text}>-   Multiple Angles? No Problem!: If the receipt is long, take multiple pictures and we'll stitch them together for you.</Text>
+</View>
+
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
-});
+
